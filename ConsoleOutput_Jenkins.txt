@@ -1,0 +1,63 @@
+Started by user admin
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/Walmart
+using credential 026749bf-9363-4564-a493-e2546eb9dba3
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/JainamS1996/Walmart-JainamSavla.git # timeout=10
+Fetching upstream changes from https://github.com/JainamS1996/Walmart-JainamSavla.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.11.0'
+using GIT_ASKPASS to set credentials GitHub Creds
+ > git fetch --tags --progress -- https://github.com/JainamS1996/Walmart-JainamSavla.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision d0c26250a14c3d23c489b45ff08047d0d24ab27b (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f d0c26250a14c3d23c489b45ff08047d0d24ab27b # timeout=10
+Commit message: "Task"
+ > git rev-list --no-walk d0c26250a14c3d23c489b45ff08047d0d24ab27b # timeout=10
+[Walmart] $ /bin/sh -xe /tmp/jenkins6658785783867042167.sh
++ cd app
++ echo Build the Image
+Build the Image
++ docker build -t jainam .
+Sending build context to Docker daemon  72.19kB
+Step 1/6 : FROM python:3.6.1-alpine
+ ---> ddd6300d05a3
+Step 2/6 : WORKDIR /app
+ ---> Using cache
+ ---> 9c0b426cdb25
+Step 3/6 : ADD . /app
+ ---> Using cache
+ ---> 8f3042bca2f3
+Step 4/6 : RUN pip install -r requirements.txt
+ ---> Using cache
+ ---> 40e680499ab0
+Step 5/6 : RUN pip install --upgrade pip
+ ---> Using cache
+ ---> 62d058998f10
+Step 6/6 : CMD ["python","app.py"]
+ ---> Using cache
+ ---> 8db75231288c
+Successfully built 8db75231288c
+Successfully tagged jainam:latest
++ echo Run Image
+Run Image
++ docker run --name walmart --hostname test  -p 80:80 jainam
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 689-144-674
+[2020-08-10 10:02:04,635] INFO in app: Home Page Request
+172.17.0.1 - - [10/Aug/2020 10:02:04] "[37mGET / HTTP/1.1[0m" 200 -
+[2020-08-10 10:02:12,536] INFO in app: Health Check Request
+172.17.0.1 - - [10/Aug/2020 10:02:12] "[37mGET /healthz/ HTTP/1.1[0m" 200 -
++ docker stop walmart -t 120
+walmart
+Finished: SUCCESS

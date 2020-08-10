@@ -14,11 +14,11 @@ def get_current_version():
 def get_uptime():
     return int(time.time() - startTime)
 
-"""#Disk space
+
 def disk_usage():
     path = "/app"
     stat = shutil.disk_usage(path) 
-    return (stat[0]/10**9,stat[1]/10**9,stat[2]/10**9)"""
+    return (stat[0]/10**9,stat[1]/10**9,stat[2]/10**9)
 
 @app.route('/')
 @app.route('/home/')
@@ -31,7 +31,6 @@ def home():
 @app.route('/healthz/')
 def health():
     #Logging the application
-
     app.logger.info('Health Check Request') 
 
     health={
@@ -42,6 +41,7 @@ def health():
             "CurDir": os.getcwd(),
             "HostName": socket.gethostname(),
             "User": getpass.getuser(),
+            "Disk Utilization(Total/Used/Free) " : disk_usage()
     }
             
     
