@@ -1,6 +1,7 @@
 from app import app
 import unittest
 import xmlrunner
+from flask_api import status
 
 
 class test(unittest.TestCase): 
@@ -41,7 +42,8 @@ class test(unittest.TestCase):
     def test_health_status_code(self):
         # sends HTTP GET request to the application
         # on the specified path
-        self.assertEqual(self.app.get('/healthz',follow_redirects=True) ,200)
+        response=(self.app.get('/healthz',follow_redirects=True))
+        self.assertTrue(status.is_success(response.status_code))
 
 if __name__ == '__main__':
     runner = xmlrunner.XMLTestRunner(output='test-reports')
