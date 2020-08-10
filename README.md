@@ -47,7 +47,7 @@ Jenkins or Gitlab. For this application, I have used Jenkins.
 - Unit testing and test reports in JUnit format
 
 ## Purpose
-In a real world scenario, we work on a particular branch. Clone the repository to get the source. Building Stage - After we are done building and running the application on the local machine, we need to test the application, if it will for all the test case scenarios. QA further tests the application in the development stage before deploying it on the Production Server.
+In a real world scenario, we work on a particular branch. Clone the repository to get the source. Building Stage - After we are done building and running the application on the local machine, we need to test the application, if it will pass for all the test case scenarios. QA further tests the application in the development stage before deploying it on the Production Server.
 
 ## Steps 
 
