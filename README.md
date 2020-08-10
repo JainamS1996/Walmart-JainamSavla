@@ -1,8 +1,8 @@
 # Walmart-JainamSavla
 
-1. What other information would you add to health endpoint json object in step 2? Explain what would be the use case for that extra information?
+**1. What other information would you add to health endpoint json object in step 2? Explain what would be the use case for that extra information?**
 
-Extra Information added : Current Directory, User and HostName
+Extra Information added : Current Directory, User, HostName and Disk Utilization
 
 Current Directory : What part of the application is being checked? (Eg - Is the database,backup and the application running? ) </br>
 User : Identity and Access Management (Is the user authorized and authenticated, who performed the latest health check) </br>
@@ -10,7 +10,7 @@ HostName : Connectivity Test </br>
 Disk Utilization : Monitoring the Disk Utilization (Scaling and Performance)
 
 
-2. Create a docker file to build, package, deploy, and run this application locally with Docker.
+**2. Create a docker file to build, package, deploy, and run this application locally with Docker.**
 
 ## Building and Running Docker Application
 
@@ -27,21 +27,20 @@ Run the application
 
 <p align="center"> <br> Figure : Dockerized Flask Application with logs </br> </p>
 
-3. How would you automate the build/test/deploy process for this application?</br>
+**3. How would you automate the build/test/deploy process for this application?**</br>
 
-What branching strategy would you use for development? </br>
+**What branching strategy would you use for development?** </br>
 Using GitHub or GitLab, create a branch of the central code whenever you need to add or update a feature. Each branch is the copy of the source code which allows us to edit,stage and commit to the feature branch. Once I have created a new development branch and done implementing/modifying the feature, I will merge those changes back into the master branch. This is sometimes called as Feature Branching.
 
-What CICD tool/service would you use? </br>
+**What CICD tool/service would you use?** </br>
 Jenkins or Gitlab. For this application, I have used Jenkins.
 
-What stages would you have in the CICD pipeline? </br>
+**What stages would you have in the CICD pipeline?** </br>
 - Adding the source as GitHub
 - Build 
 - Test
 
-What would be the purpose of each stage in CICD pipeline </br>
-
+**What would be the purpose of each stage in CICD pipeline** </br>
 - Getting the Source File from GitHub
 - Building a customized docker image of Jenkins with dockerfile
 - Building image of our application
